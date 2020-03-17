@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 2020_03_12_174826) do
 
   create_table "products", force: :cascade do |t|
     t.string "category"
+    t.string "tfvname"
     t.string "name"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_174826) do
 
   create_table "videos", force: :cascade do |t|
     t.string "url"
+    t.string "name"
     t.string "video_type"
     t.bigint "product_id"
     t.datetime "created_at", precision: 6, null: false

@@ -24,16 +24,20 @@ end
 #Show the user
 def show
     user = User.find(params[:user_id])
-    render json: {name:user.name,email:user.email}
+    myworks = user.user_works
+    user_work_videos = myworks.map{|work| Video.all.select{|video| video.id === work.video_id}}
+    myposts = user.work_posts
+    render json: {profile:{name:user.name,email:user.email},user_works:user_work_videos.flatten,user_posts:myposts}
 end
 
 
-#Show the user collection
+#Show the user collection and user works
 def collections
     user = User.find(params[:user_id])
     user_collection = user.my_collections
+    # byebug
     user_videos = user_collection.map{|item| Video.all.select{|video| video.id === item.video_id}}
-    render json: {name:user.name,mycollection:user_collection,myvideos:user_videos}
+    render json: {name:user.name,mycollection:user_collection,myvideos:user_videos.flatten}
 end
 
 end

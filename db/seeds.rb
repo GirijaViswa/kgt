@@ -16,7 +16,7 @@ User.destroy_all
 user1 = User.create(name:"abc",email:"abc@gmail.com",password:"abc")
 user2 = User.create(name:"aaa",email:"aaa@gmail.com",password:"aaa")
 
-p3 = Product.create(category:"fruit",tfvname:"pineapple",name:"Pineapple",img:"https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/323/323783/fresh-pineapple-sliced-on-chopping-board.jpg?w=1155&h=1961")
+p3 = Product.create(category:"fruit",tfvname:"Pineapple",name:"Pineapple",img:"https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/323/323783/fresh-pineapple-sliced-on-chopping-board.jpg?w=1155&h=1961")
 
 
 v1 = Video.create(url:"https://www.youtube.com/embed/WDb85KkMl7E",video_type:"Recipe",name:"Tasty Grilled Pineapple With Spiced Caramel",product_id:p3.id)

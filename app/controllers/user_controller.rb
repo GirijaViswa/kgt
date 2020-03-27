@@ -26,8 +26,10 @@ def show
     user = User.find(params[:user_id])
     myworks = user.user_works
     user_work_videos = myworks.map{|work| Video.all.select{|video| video.id === work.video_id}}
+    user_work_videos = user_work_videos.flatten
     myposts = user.work_posts
-    render json: {profile:{name:user.name,email:user.email},user_works:user_work_videos.flatten,user_posts:myposts}
+    # render json: {profile:{name:user.name,email:user.email},user_works:user_work_videos.flatten,user_posts:myposts}
+    render json: {profile:{name:user.name,email:user.email},activity:{videos:user_work_videos,works:myworks,posts:myposts}}
 end
 
 

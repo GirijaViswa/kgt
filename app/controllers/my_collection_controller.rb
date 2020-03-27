@@ -9,7 +9,7 @@ class MyCollectionController < ApplicationController
         else
                 mycollection = MyCollection.new(user_id:user.id,video_id:video.id)
                 if mycollection.save
-                    render json: {mycollection:mycollection,msg: "This video is added to your collection.",status:"ok"}
+                    render json: {posts:user.my_collections,msg: "This video is added to your collection.",status:"ok"}
                 else
                     render json: {"Error": "This video cannot be added to your collection.Please contact the support team.",status: "Error"}
                 end
